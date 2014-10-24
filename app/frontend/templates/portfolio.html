@@ -1,0 +1,33 @@
+{% macro tegel(titel,categorie,image) %}
+    <li class = "{{ categorie }}">
+        <a href="#{{ titel }}" title="{{ titel }}" class="popup">
+            <div class = "image-field">
+                <div class = "image"><img src = "{{ url_for("static",filename=image) }}" height="150" width="200"/><span></span></div>
+                <div class = "title">{{ titel }}</div>
+            </div>
+        </a>
+    </li>
+{% endmacro %}
+
+{% macro fancybox(id,content,image) %}
+    <div id="{{ id }}">
+        <div class="fancy-wrapper">
+            <div class="fancy-header">
+                <img src="{{ url_for("static",filename=image) }}">
+            </div>
+            <div class="fancy-subheader">
+                <span> {{ content.titel }}</span>
+            </div>
+            <div class="fancy-content">
+                {{ content.body }}
+            </div>
+            <div class="fancy-footer">
+                {% for knop in content.knoppen %}
+                    <div class="fancy-download "><a href="{{ knop.url }}" target="_blank"><i class="fa fa-angle-double-right fa-3x fa-fw"></i><span>{{ knop.naam }}</span></a></div>
+                {% endfor %}
+            </div>
+
+            </div>
+        </div>
+    </div>
+{% endmacro %}

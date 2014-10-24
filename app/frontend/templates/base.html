@@ -1,0 +1,782 @@
+{% import "portfolio.html" as portfolio %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Jeffrey Slort - CV, documenten, contact{% endblock %}</title>
+    {% block meta %}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:image" content="{{ url_for("static", filename="images/IMG_3646.jpg") }}"/>
+    {% endblock %}
+    {% block styles %}
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Titillium+Web:400,600|Patua+One:400|Titillium+Web:400italic,700italic&subset=latin,latin-ext"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/reset.css") }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/color-blue.css") }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/style.css") }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/jquery.fancybox.css") }}"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    {% endblock %}
+
+</head>
+<body>
+
+    <!-- Wrapper --><div id = "wrapper" class = "wrapper">
+    	
+    	<!-- Navigation --><ul id = "navigation-menu" class = "navigation-menu">
+            <li class="first"><a class = "profile" href="#profiel"><span>Profiel</span></a></li>
+            <li><a class = "cv" href="#cv"><span>CV</span></a></li>
+            <li><a class = "documents" href="#documenten"><span>Documenten</span></a></li>
+            <li><a class = "portfolio" href="#portfolio"><span>Projecten</span></a></li>
+            <li><a class = "blog" href="#blog"><span>Blog</span></a></li>
+            <li class="last"><a class = "contacts" href="#contacts"><span>Contact</span></a></li>
+        </ul><!-- /Navigation -->
+
+        <!-- Container --><div id = "container">
+
+        <!-- Profile --><div id = "profiel">
+
+            <!-- Info --><div id = "info">
+
+                <div class = "photo">
+                    <img src = "{{ url_for("static",filename="images/IMG_3646.jpg") }}" height="280" width="280"/>
+                </div>
+
+                <div class = "personal-info">
+
+                    <div class = "name-position">
+                        <div class = "name">Jeffrey Slort</div>
+                        <div class = "position">Ondernemer</div>
+                    </div>
+
+                    <div class = "motto">
+                        <div class = "motto-text">Altijd blijven leren!</div>
+                    </div>
+
+                </div>
+
+            </div><!-- /Info -->
+
+            <!-- Content Inner --><div class = "content-inner">
+
+                <!-- Left Sidebar --><div class = "left-sidebar">
+
+                    <div id = "information" class = "block">
+                        <h2>Informatie</h2>
+                        <div class = "block-content">
+                            <div class = "field">
+                                <span class = "label">Naam:</span>
+                                <span class = "text">Jeffrey</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Achternaam:</span>
+                                <span class = "text">Slort</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Leeftijd:</span>
+                                <span class = "text"> {{ ((datetime.now() - datetime(1989,12,30)).days / 365) |int}}
+								</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Telefoon:</span>
+                                <span class = "text">06-20146404</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Plaats:</span>
+                                <span class = "text">Hellevoetsluis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id = "skills" class = "block">
+                        <h2>Competenties</h2>
+                        <div class = "block-content">
+                            <div class = "field">
+                                <span class = "label">Jaren aan het werk:</span>
+                                <span class = "text">{{ ((datetime.now() - datetime(2013,5,20)).days / 365) |int}}</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Diploma:</span>
+                                <span class = "text">Bachelor Technische Bedrijfskunde</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Talen:</span>
+                                <span class = "text">NL, EN</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!-- /Left Sidebar -->
+
+                <!-- Content --><div class = "content">
+
+                    <div class = "body">
+                        <h3 style="display:inline" >Welkom!</h3> <p style="display:inline">Mijn naam is <span class="nadruk">Jeffrey Slort</span> en u bent terecht gekomen op mijn persoonlijke portaal. Op deze website kunt u alle informatie vinden met betrekking tot mijn 
+                        	loopbaan, mijn interesses en dergelijke.
+                        Dit portaal komt voort uit mijn motto namelijk "altijd blijven leren" en in de huidige online wereld betekend dat voor mij dat ook programmeren een belangrijke skill is. </p><br /><br />
+                        <h3>Verder ben ik: </h3>
+	                       
+	                       <!-- homepage lijst -->
+	                       <div style="padding: 5px 25px;">                  
+	                       <ul class="fa-ul">
+	                        	<li><i class="fa-li fa fa-check fa-2x nadruk"></i>Een <span class="nadruk">technisch bedrijfskundige</span> met een diepgewortelde interesse in procesoptmalisatie en data-analyse &amp -visualisatie.</li>
+	                        	<li><i class="fa-li fa fa-check fa-2x nadruk"></i>Een <span class="nadruk">hardloper</span> en <span class="nadruk">kickbokser</span>, met een instelling van continue verbetering</li>
+	                       </ul>
+	                       </div>
+	                       <!-- /homepage lijst -->
+                        
+                    </div>
+
+                    <div id = "my-skills" class = "block">
+                        <h3> Als ik mezelf beschrijf in 3 woorden, dan zijn dat: </h3>
+                        <div class = "block-content">
+                            <div class="vierkant"><p>Analytisch</p></div>
+                            <div class="vierkant"><p>Probleem-oplossend</p></div>
+                            <div class="vierkant"><p>Verantwoordelijk</p></div>
+                        </div>
+                    </div> 
+
+                </div><!-- /Content -->
+
+                <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+
+            </div><!-- /Content Inner -->
+
+        </div><!-- /Profile-->
+
+        <!-- CV --><div id = "cv">
+
+            <!-- Content Inner --><div class = "content-inner">
+
+                <!-- Left Sidebar --><div class = "left-sidebar page">
+
+                <div id = "office-apps" class = "block">
+                    <h2>Office Applicaties</h2>
+                    <div class = "block-content">
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                            <div class = "label">MS Project</div>
+                            <div class = "progressbar"><span class = "progress-count" level = "60"></span></div>
+                            <div class = "description">Strokenplanningen maken en gebruiken voor begeleiding en sturing</div>
+                        </div>
+                        </div>
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                            <div class = "label">MS Visio</div>
+                            <div class = "progressbar"><span class = "progress-count" level = "75"></span></div>
+                            <div class = "description">Veel gebruikt voor het visualiseren van processen en organogrammen</div>
+                        </div>
+                        </div>
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                            <div class = "label">MS Word</div>
+                            <div class = "progressbar"><span class = "progress-count" level = "80"></span></div>
+                            <div class = "description">Als mijn standaard tekst verwerker, heb ik veel ervaring met dit programma</div>
+                        </div>
+                        </div>
+                        
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                            <div class = "label">MS Excel</div>
+                            <div class = "progressbar"><span class = "progress-count" level = "90"></span></div>
+                            <div class = "description">De standaardfuncties, maar ook VBA-scripts en dergelijken</div>
+                        </div>
+                        </div>
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                            <div class = "label">Prezi</div>
+                            <div class = "progressbar"><span class = "progress-count" level = "90"></span></div>
+                            <div class = "description">Veel ervaring met het visualiseren van complexxe concepten via Prezi</div>
+                        </div>
+                        </div>
+                        <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+                    </div>
+                </div>
+               
+                <div id = "vakgebieden" class = "block">
+                    <h2>Vakgebieden</h2>
+                    <div class = "block-content">
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                                <div class = "label">Operations management</div>
+                                <div class = "progressbar"><span class = "progress-count" level = "95"></span></div>
+                                <div class = "description">Binnen van dms ben ik verantwoordelijk voor de operations</div>
+                            </div>
+                        </div>
+                         <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                                <div class = "label">Business development</div>
+                                <div class = "progressbar"><span class = "progress-count" level = "80"></span></div>
+                                <div class = "description">Ervaring binnen het strategische kader. Een voorbeeld hiervan is de ontwikkeling van het diensten pakket van dms</div>
+                            </div>
+                        </div>
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                                <div class = "label">Commercieël</div>
+                                <div class = "progressbar"><span class = "progress-count" level = "70"></span></div>
+                                <div class = "description">Bij het vermartken van de eigen organisatie heb ik vele commerciële competenties verworven</div>
+                            </div>
+                        </div>
+                       
+                        <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+                    </div>
+                </div>
+               <div id = "persoonlijk" class = "block">
+                    <h2>Persoonlijk</h2>
+                    <div class = "block-content">
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                                <div class = "label">Communicatief vaardig</div>
+                                <div class = "progressbar"><span class = "progress-count" level = "100"></span></div>
+                                <div class = "description">Communiceer makkelijk met de verschillende lagen binnen een organisatie, maar ook met klanten en stakeholders</div>
+                            </div>
+                        </div>
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                                <div class = "label">Analytisch en Kritisch</div>
+                                <div class = "progressbar"><span class = "progress-count" level = "75"></span></div>
+                                <div class = "description">Baseer mijn beslissingen op zoveel mogelijk objectieve gegevens, de Lean Six Sigma filosofie biedt hierbij mijn leidraad</div>
+                            </div>
+                        </div>
+                        
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                                <div class = "label">Resultaat gericht</div>
+                                <div class = "progressbar"><span class = "progress-count" level = "60"></span></div>
+                                <div class = "description">Het resultaat telt</div>
+                            </div>
+                        </div>
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                                <div class = "label">Creatieve oplossingen</div>
+                                <div class = "progressbar"><span class = "progress-count" level = "40"></span></div>
+                                <div class = "description">Ben niet bang om buiten de figuurlijke box te denken</div>
+                            </div>
+                        </div>
+                      </div>
+                        <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+                   
+                </div>
+                <div id = "programming" class = "block">
+                    <h2>Programmeren</h2>
+                    <div class = "block-content">
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                                <div class = "label">HTML & CSS</div>
+                                <div class = "progressbar"><span class = "progress-count" level = "85"></span></div>
+                                <div class = "description">Zowel deze website als de <a style="text-decoration: underline;" href="http://www.vandms.nl/">website voor van dms </a> zijn door mij gebouwd</div>
+                            </div>
+                        </div>
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                                <div class = "label">PHP</div>
+                                <div class = "progressbar"><span class = "progress-count" level = "60"></span></div>
+                                <div class = "description">Enige ervaring met het bouwen van webapplicaties, <a style="text-decoration: underline;" href="http://body.vandms.nl"> voorbeeld </a></div>
+                            </div>
+                        </div>
+                        <div class = "field roll-with-description hide">
+                            <div class = "roll-button"><span></span></div>
+                            <div class = "roll-field">
+                                <div class = "label">Javascript, VBA, Python</div>
+                                <div class = "progressbar"><span class = "progress-count" level = "25"></span></div>
+                                <div class = "description">Ik heb enige ervaring met het programmeren van windows en web applicaties</div>
+                            </div>
+                        </div>
+                      </div>
+                        <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+                   
+                </div>
+
+            </div><!-- /Left Sidebar -->
+
+            <!-- Content --><div class = "content">
+
+                <div id = "employment" class = "block">
+                    <h2>Werkervaring</h2>
+                    <div class = "block-content">
+                        <div class="text-field date">
+                            <div class="text-field-left">Van<br/>Jul<br/>2011<br/>tot<br/>Nu</div>
+                            <div class="text-field-right">
+                                <div class="title">Partner</div>
+                                <div class="meta without-icon"><span class="tag">van dms</span></div>
+                                <div class="text"><p>Vanaf Juli 2011 ben ik als partner actief binnen van dms. van dms is de helpende hand voor het MKB. Kern-activiteiten: Business development, operations management </p></div>
+                            </div>
+                        </div>
+                        <div class="text-field date">
+                            <div class="text-field-left">Van<br/>Jun<br/>2011<br/>tot<br/>Dec<br/>2012</div>
+                            <div class="text-field-right">
+                                <div class="title">Back-office verantwoordelijke</div>
+                                <div class="meta without-icon"><span class="tag">Koe & Zoo</span></div>
+                                <div class="text"><p>Binnen deze functie was ik verantwoordelijk voor de oprichting, administratie, klanten service en website beheer van Koe & Zoo</p></div>
+                            </div>
+                        </div>
+                        <div class="text-field date">
+                            <div class="text-field-left">Van<br/>Apr<br/>2009<br/>tot<br/>Nu<br/></div>
+                            <div class="text-field-right">
+                                <div class="title">Bezorger/keuken medewerker</div>
+                                <div class="meta without-icon"><span class="tag">Bezorgbeer</span></div>
+                                <div class="text"><p>Sed sed leo sit amet elit sagittis fermentum. Nulla posuere commodo erat. Nam ac nunc ipsum, id espara tincidunt orci. Quisque adipiscing molestie dolor, ut congue sem porta et.</p></div>
+                            </div>
+                        </div>
+                         <div class="text-field date">
+                            <div class="text-field-left">Van<br/>Feb<br/>2008<br/>tot<br/>Jul<br/>2008</div>
+                            <div class="text-field-right">
+                                <div class="title">Productie medewerker</div>
+                                <div class="meta without-icon"><span class="tag">Freelance</span></div>
+                                <div class="text"><p>Sed sed leo sit amet elit sagittis fermentum. Nulla posuere commodo erat. Nam ac nunc ipsum, id espara tincidunt orci. Quisque adipiscing molestie dolor, ut congue sem porta et.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div id = "stages" class = "block">
+				<h2>Stages</h2>
+					<div class = "block-content">
+						<div class="text-field date">
+                            <div class="text-field-left">Van<br/>Sep<br/>2012<br/>tot<br/>Mei<br/>2013</div>
+                            <div class="text-field-right">
+                                <div class="title">Afstuderen</div>
+                                <div class="meta without-icon"><span class="tag">Hoogenboom van Gink</span></div>
+                                <div class="text"><p>Binnen deze afstudeerstage was de vraag om een nieuwe dienst te ontwikkelen en te vermarkten, echter is deze opdracht na een kort oriëntatie onderzoek veranderd, meer info kunt u <a style="text-decoration:underline; color:#0099cc;" href="#portfolio">hier</a> vinden</p></div>
+                            </div>
+                        </div>
+					</div>
+					<div class = "block-content">
+						<div class="text-field date">
+                            <div class="text-field-left">Van<br/>Sep<br/>2010<br/>tot<br/>Jan<br/>2011</div>
+                            <div class="text-field-right">
+                                <div class="title">3e jaarsstage</div>
+                                <div class="meta without-icon"><span class="tag">Woonbron</span></div>
+                                <div class="text"><p>Het evalueren van de nieuwe werkmethoden gebruikt bij project "de nieuwe Nachtegaal", meer info kunt u <a style="text-decoration:underline; color:#0099cc;" href="#portfolio">hier</a> vinden</p></div>
+                            </div>
+                        </div>
+					</div>
+					
+				</div>	
+                <div id = "education" class = "block last">
+                    <h2>Opleidingen</h2>
+                    <div class = "block-content">
+                        <div class="text-field date">
+                            <div class="text-field-left">Van<br/>Sep<br/>2008<br/>tot<br/>Mei<br/>2013</div>
+                            <div class="text-field-right">
+                                <div class="title">Bachelor Technische bedrijfskunde</div>
+                                <div class="meta without-icon"><span class="tag">Hogeschool Rotterdam</span></div>
+                                <div class="text"><p>Sed sed leo sit amet elit sagittis fermentum. Nulla posuere commodo erat. Nam ac nunc ipsum, id espara tincidunt orci. Quisque adipiscing molestie dolor, ut congue sem porta et.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "block-content">
+                        <div class="text-field date">
+                            <div class="text-field-left">Van<br/>Sep<br/>2011<br/>tot<br/>Feb<br/>2012</div>
+                            <div class="text-field-right">
+                                <div class="title">Minor ondernemen</div>
+                                <div class="meta without-icon"><span class="tag">Hogeschool Rotterdam</span></div>
+                                <div class="text"><p>Afgerond met het certificaat ondernemerschap (H1 & H2) - Landelijke stichting Certificaat Ondernemerschap</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "block-content">
+                        <div class="text-field date ">
+                            <div class="text-field-left">Van<br/>Sep<br/>2005<br/>tot<br/>Jul<br/>2007</div>
+                            <div class="text-field-right">
+                                <div class="title">HAVO</div>
+                                <div class="meta without-icon"><span class="tag">Penta college csg Jacob van Liesveldt</span></div>
+                                <div class="text"><p></p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "block-content">
+                        <div class="text-field date last">
+                            <div class="text-field-left">Van<br/>Sep<br/>2002<br/>tot<br/>Jul<br/>2005</div>
+                            <div class="text-field-right">
+                                <div class="title">Tweetalig Atheneum</div>
+                                <div class="meta without-icon"><span class="tag">Penta college csg Jacob van Liesveldt</span></div>
+                                <div class="text"><p> Afgerond met het Anglia Certificate of English : Advanced Level - Anglia Examinations England</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /Content -->
+
+            <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+
+        </div><!-- /Content Inner -->
+
+        </div><!-- /CV -->
+
+        <!-- Documents --><div id = "documenten">
+
+            <!-- Content --><div class = "content">
+
+                
+                <!-- Documents Menu --> <ul id = "documents-menu" class = "documents-menu" style="display:none;">
+                    <li class = "first"><a href = "#documenten">Documenten</a>/</li>
+                    <li><a href = "#pictures">Foto's</a>/</li>
+                    <li><a href = "#videos">Video's</a>/</li>
+                    <li class = "last"><a href = "#links">Links</a></li>
+                </ul>
+                <!-- /Documents Menu -->
+
+                <!-- Documents --><div id="documenten" class = "content-inner">
+
+                    <div id = "curriculum-vitae" class = "block">
+                        <h2>Curriculum Vitae</h2>
+                        <div class = "block-content">
+                            <div class="text-field file">
+                                <div class="text-field-left"><a href = "documenten/Curriculum Vitae Jeffrey Slort.pdf">Download<br/>PDF bestand</a></div>
+                                <div class="text-field-right">
+                                    <div class="title">Jeffrey Slort - CV - PDF</div>
+                                    <div class="meta without-icon"><span class="date">Geüpload op 7 Oktober 2013</span></div>
+                                    <div class="text"><p>Mijn gehele Curriculum Vitae in Pdf formaat</p></div>
+                                </div>
+                            </div>
+                            <div class="text-field file">
+                                <div class="text-field-left"><a href = "#">Download<br/>DOC bestand</a></div>
+                                <div class="text-field-right">
+                                    <div class="title">Jeffrey Slort - CV - DOC</div>
+                                    <div class="meta without-icon"><span class="date">Geüpload op 7 Oktober 2013</span></div>
+                                    <div class="text"><p>Mijn gehele cuuriculum vitae in DOC formaat</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id = "references" class = "block last">
+                        <h2>Referenties</h2>
+                        <div class = "block-content">
+                            <div class="text-field file">
+                                <div class="text-field-left"><a href = "#">Download<br/>PDF file</a></div>
+                                <div class="text-field-right">
+                                    <div class="title">Jeffrey Slort - Referentie van Hoogenboom van Gink</div>
+                                    <div class="meta without-icon"><span class="date">Geüpload op ....</span></div>
+                                    <div class="text"><p>Hier kunt u de beoordeling vinden van mijn afstudeerbegeleider binnen Hoogenboom van Gink. Voor meer informatie over mijn afstudeerscriptie verwijs ik u door naar <a href="#">Projecten</a></p></div>
+                                </div>
+                            </div>
+                            <div class="text-field file">
+                                <div class="text-field-left"><a href = "#">Download<br/>PDF file</a></div>
+                                <div class="text-field-right">
+                                    <div class="title">Jeffrey Slort - Referentie Siemens</div>
+                                    <div class="meta without-icon"><span class="date">Uploaded on April 23, 2013</span></div>
+                                    <div class="text"><p>Sed sed leo sit amet elit sagittis fermentum. Nulla posuere commodo erat. Nam ac nunc ipsum, id espara tincidunt orci. Quisque adipiscing molestie dolor, ut congue sem porta et.</p></div>
+                                </div>
+                            </div>
+                            <div class="text-field file last">
+                                <div class="text-field-left"><a href = "#">Download<br/>PDF file</a></div>
+                                <div class="text-field-right">
+                                    <div class="title">Jeffrey Slort- Referentie van ...</div>
+                                    <div class="meta without-icon"><span class="date">Uploaded on April 19, 2013</span></div>
+                                    <div class="text"><p>Sed sed leo sit amet elit sagittis fermentum. Nulla posuere commodo erat. Nam ac nunc ipsum, id espara tincidunt orci. Quisque adipiscing molestie dolor, ut congue sem porta et.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+
+                </div><!-- /Documenten -->
+
+                
+			</div><!-- /Content -->
+
+            <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+        </div><!-- /Documents tab -->
+
+        <!-- Portfolio --><div id = "portfolio">
+
+            <!-- Content --><div class = "content">
+
+            <h2>Projecten</h2>
+
+            <!-- Portfolio Menu --><ul id="portfolio-menu">
+                <li><a href="" class="current" data-filter="*">All</a></li>
+                <li><a href="" data-filter=".studie">Studie</a></li>
+                <li><a href="" data-filter=".lean">Lean Six Sigma</a></li>
+                <li><a href="" data-filter=".vandms">van dms</a></li>
+            </ul><!-- /Portfolio Menu -->
+
+            <!-- Portfolio Container --><ul id="portfolio-container">
+                <li class = "vandms">
+                    <a href="#mappvandms" title="Mapp van dms" class="popup">
+                        <div class = "image-field">
+                            <div class = "image"><img src = {{ url_for("static",filename="images/mappvandms-thumb.png") }}" height="150" width="200"/><span></span></div>
+                            <div class = "title">Mapp van dms</div>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class = "vandms">
+                    <a href="#businessplan" title="Business plan van dms" class="popup">
+                        <div class = "image-field">
+                            <div class = "image"><img src = "{{ url_for("static",filename="images/Business-Plan-thumb.png") }}" height="150" width="200"/><span></span></div>
+                            <div class = "title">Business plan van dms</div>
+                        </div>
+                    </a>
+                </li>
+                <li class = "studie">
+                    <a href="#automatisering" title="Automatisering" class="popup">
+                        <div class = "image-field">
+                            <div class = "image"><img src = "{{ url_for("static",filename="images/opdrachtekening-thumb.png") }}" height="150" width="200"/><span></span></div>
+                            <div class = "title">Automatisering</div>
+                        </div>
+                    </a>
+                </li>
+
+            </ul><!-- /Portfolio Container -->
+					<!-- Projecten fancyboxxes -->
+					<div style="display:none"> 
+		                	<div id="mappvandms">
+		                		<div class="fancy-wrapper">
+			                		<div class="fancy-header">
+			                			<img src="{{ url_for("static",filename="images/mappvandms.png") }}">
+			                		</div>
+			                		<div class="fancy-subheader">
+			                			<span> Mapp van dms</span>
+			                		</div>
+			                		<div class="fancy-content">
+			                			<p>Mapp van dms is een tijdsregistratie platform voor het meten van activiteiten. Het project kwam voort uit de wens om de Lean Six Sigma filosofie toe te kunnen passen binnen het MKB.</p>
+			                			<p>In het kort is de eerste stap binnen deze filosofie het meten van de huidige situatie (meten=weten). Daarbij is het meten van de tijdsbesteding en de uitkomsten van die inspanningen een arbeidsintensief proces.</p>
+			                			<p>Vanuit deze gedachte zijn wij (het van dms team) gaan brainstormen over dit vraagstuk. De uitkomst was al snel dat het meten geautomatiseerd moest worden en dat het geautomatiseerde moet voldoen aan drie vereisten, namelijk:</p>
+			                			<br />
+			                			<ul class="fa-ul">
+			                				<li><i class="fa fa-check"></i><span class="nadruk">Gebruiksvriendelijk</span>, een gebruiker mag niet langer dan 30 seconden bezig zijn met een meting</li>			                		
+			                				<li><i class="fa fa-check"></i><span class="nadruk">Flexibel</span>, de applicatie moet zo worden opgebouwd dat hij in elk type bedrijf op elke mogelijke afdeling werkt.</li>
+			                				<li><i class="fa fa-check"></i><span class="nadruk">Inzichtelijk</span>, de gegevens uit de applicatie moeten gebruikt kunnen worden in analyse modellen</li>
+			                			</ul>
+			                			<br />
+			                			<p>Vanuit die vereisten zijn we begonnen met het schetsen en uitdenken van een applicatie voor het meten van de tijdsbesteding binnen het MKB. We hebben de juiste mensen en middelen bij elkaar gebracht en dat heeft ons gebracht tot een tool voor een</p>
+			                		</div>
+			                		<div class="fancy-footer">
+			                			<div class="fancy-download "><a href="http://mapp.vandms.nl/" target="_blank"><i class="fa fa-angle-double-right fa-3x fa-fw"></i><span>Mapp website</span></a></div>
+			                		</div>
+		                		</div>
+		                	</div>
+		                	
+		                	<div id="businessplan">
+		                		<div class="fancy-wrapper">
+									<div class="fancy-header">
+										<img src="{{ url_for("static", filename="images/Business-Plan.png") }}">
+									</div>
+									<div class="fancy-subheader">
+										<span> Businessplan van dms</span>
+									</div>
+									<div class="fancy-content">
+										<p>Tijdens de minor Ondernemen zijn wij (het team van dms) begonnen met het schrijven van ons Businessplan. Na het voltooien van deze minor was de basis van dms gelegd.
+											In het jaar dat volgde hebben we het plan aangescherpt met de feedback die we uit de markt verkregen. Het "eindresultaat" voor zover je kan spreken over een eindresultaat bij een businessplan kunt u met de onderstaande knop downloaden.</p>
+									</div>
+									<div class="fancy-footer">
+										<div class="twee-knoppen">
+											<div class="fancy-download "><a href="http://www.vandms.nl/" target="_blank"><i class="fa fa-angle-double-right fa-3x fa-fw"></i><span>website van dms</span></a></div>
+											<div class="fancy-download "><a href="{{ url_for("static",filename="documenten/Businessplan%20van%20dms.pdf") }}" target="_blank"><i class="fa fa-download fa-3x fa-fw"></i><span>Download</span></a></div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<div id="automatisering">
+								<div class="fancy-wrapper">
+									<div class="fancy-header">
+										<img src="{{ url_for("static", filename="images/opdrachtekening.png") }}">
+									</div>
+									<div class="fancy-subheader">
+										<span> Eindopdracht Industriële Automatisering </span>
+									</div>
+									<div class="fancy-content">
+										<p>Als eindopdracht voor de module Industriële automatisering aan de Hogeschool Rotterdam werd ons gevraagd om een plan te schrijven voor het automatiseren van een productieproces. Alle informatie die we hiervoor kregen was een technische tekening (ongeveer zo als de bovenstaande tekening) met een aantal maten en bewerking. Veel gegevens op de tekening waren weggevallen en er werd niet vermeld wat het product voor functie had.</p>
+										
+										<div class="blok">
+											<h3>Aan ons de vraag om:</h3>
+											<ul class="fa-ul">
+												<li><i class="fa fa-check nadruk"></i>de tekening te ontcijferen</li>
+												<li><i class="fa fa-check nadruk"></i>een productieproces te bedenken</li>
+												<li><i class="fa fa-check nadruk"></i>het productieproces financieel te verantwoorden</li>										
+											</ul>
+										</div>
+										<div class="blok">
+												<h3>Eisen</h3>
+												<ul class="fa-ul">
+													<li><i class="fa fa-check nadruk"></i>Productie : 65.000 stuks per jaar</li>
+													<li><i class="fa fa-check nadruk"></i>Winstgevend </li>
+												</ul>
+										</div>
+										<div style="clear:both"></div>
+										<p> Ik heb deze opdracht hier geüpload omdat ik het een erg leuke opdracht vond destijds en omdat ik best trots ben op het eindresultaat, zeker gezien de krappe deadline (2 weken). Via de onderstaande knop kunt u het rapport lezen. </p>
+										  
+									</div>
+									<div class="fancy-footer">
+										<div class="fancy-download pull-right"><a href="{{ url_for("static", filename="documenten/Rapport-automatisering-2010.pdf") }}" target="_blank"><i class="fa fa-download fa-3x fa-fw"></i><span>Download</span></a></div>
+										
+										
+									</div>
+								</div>
+							</div>
+		            </div><!-- /projecten fancyboxxes -->
+            </div><!-- /Content -->
+
+            <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+
+        </div><!-- /Portfolio -->
+
+        <!-- Blog -->
+        <div id = "blog">
+
+
+
+        </div><!-- /Blog -->
+        <!-- /Blog-->
+
+        <!-- Contacts --><div id = "contacts">
+
+            <div id ="contact-map-block" class ="block">
+                <h2>Contact</h2>
+                <div id="map"></div>
+            </div>
+
+            <!-- Content Inner --><div class = "content-inner">
+
+                <div class = "left-sidebar">
+                    <div id = "contact-information" class="block">
+                        <h2>Contact Informatie</h2>
+                        <div class = "block-content">
+                            <div class = "contact-field address">
+                                <div id = "contact-name">Jeffrey Slort</div>
+                                <div id = "contact-address">Steijaartlaan 1,3222 CS, Hellevoetsluis, Nederland</div> <!-- From this field take address Google map-->
+                            </div>
+                            <div class = "contact-field phone">
+                                <div id = "contact-phone">Telefoon: +31 (0)6-20146404</div>
+                                <!--<div id = "contact-fax">Fax: +1 123-456-7890</div> -->
+                            </div>
+                            <div class = "contact-field mail">
+                                <div id = "contact-mail">E-mail: mail@jeffreyslort.nl</div>
+                                <div id = "contact-site">Website: www.jeffreyslort.nl</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "content">
+
+                    <div id = "contact-form" class = "block">
+                        <h3>Stuur me een bericht</h3>
+                        <!-- Contacts Form --><form id="contact" method="post" action="{{ url_for("website.mail") }}">
+                            <div id = "about">
+                                <input title="Your Name" type="text" name="name" class="input" value="Naam*" onblur="if (this.value.length == 0) {this.value='Name*'; this.style='color: #849299';}" onfocus="if (this.value== 'Name*') {this.value=''; this.style='color: black';}">
+                                <input title="Your E-Mail" type="text" name="email" class="input" value="E-mail*" onblur="if (this.value.length == 0) {this.value='E-mail*'; this.style='color: #849299';}" onfocus="if (this.value== 'E-mail*') {this.value=''; this.style='color: black';}">
+                                <input title="Your WebSite" type="text" name="website" class="input" value="Website" onblur="if (this.value.length == 0) {this.value='WebSite'; this.style='color: #849299';}" onfocus="if (this.value== 'WebSite') {this.value=''; this.style='color: black';}">
+                            </div>
+                            <div id = "mess">
+                                <textarea title="Your Message" type="text" name="message" cols="82" rows="6" class="textarea" onclick="this.value='';"  onfocus="this.style='color: black';">Hoe kan ik u van dienst zijn ?*</textarea>
+                            </div>
+                            <div id = "send">
+                                <input title="Send Message" type="submit" name="submit" value="Stuur bericht" class="button">
+                            </div>
+
+                        </form><!-- /Contacts Form -->
+                    </div>
+
+                </div>
+
+                <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+
+            </div><!-- /Content Inner -->
+
+        </div><!-- /Contacts -->
+
+        <!-- Social Button --><div id = "social">
+            <ul class = "pos-button">
+                <li class = "first"><a href = "https://www.facebook.com/jeffrey.slort" class = "facebook"title="Facebook"></a></li>
+                <!-- <li><a href = "#" class = "google" title="Google+"></a></li> -->
+                <li><a href = "https://twitter.com/Jeff_Slort" class = "twitter" title="Twitter"></a></li>
+                <li><a href = "http://www.linkedin.com/pub/jeffrey-slort/27/1a5/139" class = "linkedin" title="Linkedin"></a></li>
+                <!-- <li><a href = "#" class = "pinterest" title="Pinterest"></a></li> 
+                <li class = "last"><a href="#" class = "dribbble" title="Dribbble"></a></li> -->
+            </ul>
+        </div><!-- /Social Button -->
+
+        <!-- Action Button --><div id = "action">
+            <ul class = "pos-button">
+                <li class = "first"><a href = "#" class = "print" title="Print" onclick="window.print();"></a></li>
+                <!-- <li><a href = "#" class = "save" title="Save"></a></li> -->
+                <li class = "last"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjeffreyslort.nl" target="_blank" class = "share" title="Deel op Facebook!"></a></li>
+            </ul>
+        </div><!-- /Action Button -->
+
+        </div><!-- /Container -->
+
+        <!-- Footer --><div id = "footer">
+            <div id = "copyright">© 2013 Jeffrey Slort</div>
+        </div><!-- /Footer -->
+
+    </div><!-- /Wrapper -->
+
+    {% block scripts %}
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.min.js") }}"></script>
+    <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.easytabs.min.js") }}"></script>
+    <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.isotope.min.js") }}"></script>
+    <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.adipoli.min.js") }}"></script>
+    <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.fancybox.pack.js") }}"></script>
+    <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.gmap.min.js") }}"></script>
+    <script type="text/javascript" src="{{ url_for("static",filename="js/response.min.js") }}"></script>
+    <script type="text/javascript" src="{{ url_for("static",filename="js/custom.js") }}"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44957210-1', 'jeffreyslort.nl');
+      ga('send', 'pageview');
+
+    </script>
+
+    <script type="text/javascript">
+     /* ---------------------------------------------------------------------- */
+    /*	Contact Form
+    /* ---------------------------------------------------------------------- */
+
+    // Needed variables
+    var $contactform 	= $('#contact'),
+        $success		= 'Thank you! Your message has been sent.';
+
+    $contactform.submit(function(){
+        $.ajax({
+            type: "POST",
+            url: "{{ url_for("website.mail") }}",
+            data: $(this).serialize(),
+            success: function(msg)
+            {
+                if(msg == 'SEND'){
+                    response = '<div class="status-success">'+ $success +'</div>';
+                }
+                else{
+                    response = '<div class="status-error">'+ msg +'</div>';
+                }
+                // Hide any previous response text
+                $(".status-error,.status-success").remove();
+                // Show response message
+                $contactform.prepend(response);
+            }
+        });
+        return false;
+    });
+
+    </script>
+{% endblock %}
+</body>
+</html>

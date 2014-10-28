@@ -1,6 +1,6 @@
-{% macro tegel(titel,categorie,image) %}
+{% macro tegel(id,titel,categorie,image) %}
     <li class = "{{ categorie }}">
-        <a href="#{{ titel }}" title="{{ titel }}" class="popup">
+        <a href="#{{ id }}" title="{{ titel }}" class="popup">
             <div class = "image-field">
                 <div class = "image"><img src = "{{ url_for("static",filename=image) }}" height="150" width="200"/><span></span></div>
                 <div class = "title">{{ titel }}</div>
@@ -9,14 +9,14 @@
     </li>
 {% endmacro %}
 
-{% macro fancybox(id,content,image) %}
+{% macro fancybox(id,titel,content,image) %}
     <div id="{{ id }}">
         <div class="fancy-wrapper">
             <div class="fancy-header">
                 <img src="{{ url_for("static",filename=image) }}">
             </div>
             <div class="fancy-subheader">
-                <span> {{ content.titel }}</span>
+                <span> {{ titel }}</span>
             </div>
             <div class="fancy-content">
                 {{ content.body }}

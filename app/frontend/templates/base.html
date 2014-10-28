@@ -1,5 +1,3 @@
-{% import "portfolio.html" as portfolio %}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +26,7 @@
             <li class="first"><a class = "profile" href="#profiel"><span>Profiel</span></a></li>
             <li><a class = "cv" href="#cv"><span>CV</span></a></li>
             <li><a class = "documents" href="#documenten"><span>Documenten</span></a></li>
-            <li><a class = "portfolio" href="#portfolio"><span>Projecten</span></a></li>
+            <li><a class = "portfolio" href="{{ url_for("api.sectie",sectie="portfolio") }}" data-target="#portfolio"><span>Projecten</span></a></li>
             <li><a class = "blog" href="#blog"><span>Blog</span></a></li>
             <li class="last"><a class = "contacts" href="#contacts"><span>Contact</span></a></li>
         </ul><!-- /Navigation -->
@@ -499,133 +497,7 @@
 
         <!-- Portfolio --><div id = "portfolio">
 
-            <!-- Content --><div class = "content">
 
-            <h2>Projecten</h2>
-
-            <!-- Portfolio Menu --><ul id="portfolio-menu">
-                <li><a href="" class="current" data-filter="*">All</a></li>
-                <li><a href="" data-filter=".studie">Studie</a></li>
-                <li><a href="" data-filter=".lean">Lean Six Sigma</a></li>
-                <li><a href="" data-filter=".vandms">van dms</a></li>
-            </ul><!-- /Portfolio Menu -->
-
-            <!-- Portfolio Container --><ul id="portfolio-container">
-                <li class = "vandms">
-                    <a href="#mappvandms" title="Mapp van dms" class="popup">
-                        <div class = "image-field">
-                            <div class = "image"><img src = {{ url_for("static",filename="images/mappvandms-thumb.png") }}" height="150" width="200"/><span></span></div>
-                            <div class = "title">Mapp van dms</div>
-                        </div>
-                    </a>
-                </li>
-                
-                <li class = "vandms">
-                    <a href="#businessplan" title="Business plan van dms" class="popup">
-                        <div class = "image-field">
-                            <div class = "image"><img src = "{{ url_for("static",filename="images/Business-Plan-thumb.png") }}" height="150" width="200"/><span></span></div>
-                            <div class = "title">Business plan van dms</div>
-                        </div>
-                    </a>
-                </li>
-                <li class = "studie">
-                    <a href="#automatisering" title="Automatisering" class="popup">
-                        <div class = "image-field">
-                            <div class = "image"><img src = "{{ url_for("static",filename="images/opdrachtekening-thumb.png") }}" height="150" width="200"/><span></span></div>
-                            <div class = "title">Automatisering</div>
-                        </div>
-                    </a>
-                </li>
-
-            </ul><!-- /Portfolio Container -->
-					<!-- Projecten fancyboxxes -->
-					<div style="display:none"> 
-		                	<div id="mappvandms">
-		                		<div class="fancy-wrapper">
-			                		<div class="fancy-header">
-			                			<img src="{{ url_for("static",filename="images/mappvandms.png") }}">
-			                		</div>
-			                		<div class="fancy-subheader">
-			                			<span> Mapp van dms</span>
-			                		</div>
-			                		<div class="fancy-content">
-			                			<p>Mapp van dms is een tijdsregistratie platform voor het meten van activiteiten. Het project kwam voort uit de wens om de Lean Six Sigma filosofie toe te kunnen passen binnen het MKB.</p>
-			                			<p>In het kort is de eerste stap binnen deze filosofie het meten van de huidige situatie (meten=weten). Daarbij is het meten van de tijdsbesteding en de uitkomsten van die inspanningen een arbeidsintensief proces.</p>
-			                			<p>Vanuit deze gedachte zijn wij (het van dms team) gaan brainstormen over dit vraagstuk. De uitkomst was al snel dat het meten geautomatiseerd moest worden en dat het geautomatiseerde moet voldoen aan drie vereisten, namelijk:</p>
-			                			<br />
-			                			<ul class="fa-ul">
-			                				<li><i class="fa fa-check"></i><span class="nadruk">Gebruiksvriendelijk</span>, een gebruiker mag niet langer dan 30 seconden bezig zijn met een meting</li>			                		
-			                				<li><i class="fa fa-check"></i><span class="nadruk">Flexibel</span>, de applicatie moet zo worden opgebouwd dat hij in elk type bedrijf op elke mogelijke afdeling werkt.</li>
-			                				<li><i class="fa fa-check"></i><span class="nadruk">Inzichtelijk</span>, de gegevens uit de applicatie moeten gebruikt kunnen worden in analyse modellen</li>
-			                			</ul>
-			                			<br />
-			                			<p>Vanuit die vereisten zijn we begonnen met het schetsen en uitdenken van een applicatie voor het meten van de tijdsbesteding binnen het MKB. We hebben de juiste mensen en middelen bij elkaar gebracht en dat heeft ons gebracht tot een tool voor een</p>
-			                		</div>
-			                		<div class="fancy-footer">
-			                			<div class="fancy-download "><a href="http://mapp.vandms.nl/" target="_blank"><i class="fa fa-angle-double-right fa-3x fa-fw"></i><span>Mapp website</span></a></div>
-			                		</div>
-		                		</div>
-		                	</div>
-		                	
-		                	<div id="businessplan">
-		                		<div class="fancy-wrapper">
-									<div class="fancy-header">
-										<img src="{{ url_for("static", filename="images/Business-Plan.png") }}">
-									</div>
-									<div class="fancy-subheader">
-										<span> Businessplan van dms</span>
-									</div>
-									<div class="fancy-content">
-										<p>Tijdens de minor Ondernemen zijn wij (het team van dms) begonnen met het schrijven van ons Businessplan. Na het voltooien van deze minor was de basis van dms gelegd.
-											In het jaar dat volgde hebben we het plan aangescherpt met de feedback die we uit de markt verkregen. Het "eindresultaat" voor zover je kan spreken over een eindresultaat bij een businessplan kunt u met de onderstaande knop downloaden.</p>
-									</div>
-									<div class="fancy-footer">
-										<div class="twee-knoppen">
-											<div class="fancy-download "><a href="http://www.vandms.nl/" target="_blank"><i class="fa fa-angle-double-right fa-3x fa-fw"></i><span>website van dms</span></a></div>
-											<div class="fancy-download "><a href="{{ url_for("static",filename="documenten/Businessplan%20van%20dms.pdf") }}" target="_blank"><i class="fa fa-download fa-3x fa-fw"></i><span>Download</span></a></div>
-										</div>
-										
-									</div>
-								</div>
-							</div>
-							<div id="automatisering">
-								<div class="fancy-wrapper">
-									<div class="fancy-header">
-										<img src="{{ url_for("static", filename="images/opdrachtekening.png") }}">
-									</div>
-									<div class="fancy-subheader">
-										<span> Eindopdracht Industriële Automatisering </span>
-									</div>
-									<div class="fancy-content">
-										<p>Als eindopdracht voor de module Industriële automatisering aan de Hogeschool Rotterdam werd ons gevraagd om een plan te schrijven voor het automatiseren van een productieproces. Alle informatie die we hiervoor kregen was een technische tekening (ongeveer zo als de bovenstaande tekening) met een aantal maten en bewerking. Veel gegevens op de tekening waren weggevallen en er werd niet vermeld wat het product voor functie had.</p>
-										
-										<div class="blok">
-											<h3>Aan ons de vraag om:</h3>
-											<ul class="fa-ul">
-												<li><i class="fa fa-check nadruk"></i>de tekening te ontcijferen</li>
-												<li><i class="fa fa-check nadruk"></i>een productieproces te bedenken</li>
-												<li><i class="fa fa-check nadruk"></i>het productieproces financieel te verantwoorden</li>										
-											</ul>
-										</div>
-										<div class="blok">
-												<h3>Eisen</h3>
-												<ul class="fa-ul">
-													<li><i class="fa fa-check nadruk"></i>Productie : 65.000 stuks per jaar</li>
-													<li><i class="fa fa-check nadruk"></i>Winstgevend </li>
-												</ul>
-										</div>
-										<div style="clear:both"></div>
-										<p> Ik heb deze opdracht hier geüpload omdat ik het een erg leuke opdracht vond destijds en omdat ik best trots ben op het eindresultaat, zeker gezien de krappe deadline (2 weken). Via de onderstaande knop kunt u het rapport lezen. </p>
-										  
-									</div>
-									<div class="fancy-footer">
-										<div class="fancy-download pull-right"><a href="{{ url_for("static", filename="documenten/Rapport-automatisering-2010.pdf") }}" target="_blank"><i class="fa fa-download fa-3x fa-fw"></i><span>Download</span></a></div>
-										
-										
-									</div>
-								</div>
-							</div>
-		            </div><!-- /projecten fancyboxxes -->
             </div><!-- /Content -->
 
             <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->

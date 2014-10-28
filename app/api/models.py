@@ -17,8 +17,9 @@ class Blog(Document):
 class Sectie(Document):
     __collection__ = "secties"
     structure = {
-        "jan": unicode
+        "sectie": unicode,
+        "template": unicode,
+        "properties": dict,
     }
-
-def pimpie():
-    return "jaaaaa"
+    required_fields = ["sectie","template"]
+    use_dot_notation = True

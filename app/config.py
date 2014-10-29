@@ -1,4 +1,4 @@
-
+import os
 
 MONGODB_DATABASE = "jeffreyslort"
 MONGODB_HOST = "localhost"
@@ -10,3 +10,4 @@ MAIL_USERNAME = "mail@jeffreyslort.nl"
 MAIL_PASSWORD = "poiuyt09"
 MAIL_USE_SSL = False
 
+SECRET_KEY = os.urandom(1024)

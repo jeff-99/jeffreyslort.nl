@@ -12,14 +12,15 @@
 <!-- /Portfolio Menu --></ul>
 
 <!-- Portfolio Container --><ul id="portfolio-container">
-                                {% for project in properties["items"] %}
+                                {% for project in posts %}
                                     {{  portfolio.tegel(project["id"],project["categorie"],project["image"]) }}
                                 {% endfor %}
 <!-- /Portfolio Container --></ul>
 
 
 <!-- Projecten fancyboxxes --><div style="display:none">
-                                  {% for project in properties["items"] %}
-                                    {{portfolio.fancybox(project["id"],project["content"],project["image"])}}
-                                {% endfor %}
+                                 {% for project in posts %}
+                                    {{  portfolio.fancybox(project["id"],project["titel"],project["content"],project["image"])  }}
+                                 {% endfor %}
 <!-- /projecten fancyboxxes --></div>
+<!-- /content --></div>

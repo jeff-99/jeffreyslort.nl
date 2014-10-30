@@ -1,0 +1,52 @@
+<div id ="contact-map-block" class ="block">
+                <h2>Contact</h2>
+                <div id="map"></div>
+            </div>
+
+            <!-- Content Inner --><div class = "content-inner">
+
+                <div class = "left-sidebar">
+                    <div id = "contact-information" class="block">
+                        <h2>Contact Informatie</h2>
+                        <div class = "block-content">
+                            <div class = "contact-field address">
+                                <div id = "contact-name">Jeffrey Slort</div>
+                                <div id = "contact-address">Steijaartlaan 1,3222 CS, Hellevoetsluis, Nederland</div> <!-- From this field take address Google map-->
+                            </div>
+                            <div class = "contact-field phone">
+                                <div id = "contact-phone">Telefoon: +31 (0)6-20146404</div>
+                                <!--<div id = "contact-fax">Fax: +1 123-456-7890</div> -->
+                            </div>
+                            <div class = "contact-field mail">
+                                <div id = "contact-mail">E-mail: mail@jeffreyslort.nl</div>
+                                <div id = "contact-site">Website: www.jeffreyslort.nl</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "content">
+
+                    <div id = "contact-form" class = "block">
+                        <h3>Stuur me een bericht</h3>
+                        <!-- Contacts Form --><form id="contact" method="post" action="{{ url_for("website.mail") }}">
+                            <div id = "about">
+                                <input title="Your Name" type="text" name="name" class="input" value="Naam*" onblur="if (this.value.length == 0) {this.value='Name*'; this.style='color: #849299';}" onfocus="if (this.value== 'Name*') {this.value=''; this.style='color: black';}">
+                                <input title="Your E-Mail" type="text" name="email" class="input" value="E-mail*" onblur="if (this.value.length == 0) {this.value='E-mail*'; this.style='color: #849299';}" onfocus="if (this.value== 'E-mail*') {this.value=''; this.style='color: black';}">
+                                <input title="Your WebSite" type="text" name="website" class="input" value="Website" onblur="if (this.value.length == 0) {this.value='WebSite'; this.style='color: #849299';}" onfocus="if (this.value== 'WebSite') {this.value=''; this.style='color: black';}">
+                            </div>
+                            <div id = "mess">
+                                <textarea title="Your Message" type="text" name="message" cols="82" rows="6" class="textarea" onclick="this.value='';"  onfocus="this.style='color: black';">Hoe kan ik u van dienst zijn ?*</textarea>
+                            </div>
+                            <div id = "send">
+                                <input title="Send Message" type="submit" name="submit" value="Stuur bericht" class="button">
+                            </div>
+
+                        </form><!-- /Contacts Form -->
+                    </div>
+
+                </div>
+
+                <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+
+            </div><!-- /Content Inner -->

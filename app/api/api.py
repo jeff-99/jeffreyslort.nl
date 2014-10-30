@@ -8,16 +8,6 @@ apiBP = Blueprint("api",__name__,template_folder="templates")
 def index():
     return redirect("/")
 
-@apiBP.route("/<string:sectie>")
-def sectie(sectie):
-    doc = db.secties.find_one({"sectie":sectie},{"_id":0})
-    if doc:
-        if doc.get("type") == "overzicht":
-            posts = [p for p in db.posts.find({"sectie":sectie})]
-            return render_template(doc["template"],posts=posts)
-        else:
-            return render_template(doc["template"])
-    return "er ging iets mis"
 
 @apiBP.route("/test")
 def test():

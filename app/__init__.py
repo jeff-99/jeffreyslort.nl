@@ -1,18 +1,18 @@
 __author__ = 'Jeffrey Slort'
 
-from flask import Flask, redirect, url_for,g
+from flask import Flask, redirect, url_for,g,current_app
 from flask.ext.mongokit import MongoKit
 from flask.ext.mail import Mail
 from blog.models import Post
+from frontend.models import Sectie
 from datetime import datetime
 from mongosessions import MongoSessionInterface
 
 app = Flask(__name__)
 app.config.from_pyfile("config.py")
 
-
 db = MongoKit(app)
-db.register([Post])
+db.register([Post,Sectie])
 
 mailer = Mail(app)
 

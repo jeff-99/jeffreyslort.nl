@@ -1,0 +1,106 @@
+<!-- Info --><div id = "info">
+
+                <div class = "photo">
+                    <img src = "{{ url_for("static",filename="images/IMG_3646.jpg") }}" height="280" width="280"/>
+                </div>
+
+                <div class = "personal-info">
+
+                    <div class = "name-position">
+                        <div class = "name">Jeffrey Slort</div>
+                        <div class = "position">Ondernemer</div>
+                    </div>
+
+                    <div class = "motto">
+                        <div class = "motto-text">Altijd blijven leren!</div>
+                    </div>
+
+                </div>
+
+            </div><!-- /Info -->
+
+            <!-- Content Inner --><div class = "content-inner">
+
+                <!-- Left Sidebar --><div class = "left-sidebar">
+
+                    <div id = "information" class = "block">
+                        <h2>Informatie</h2>
+                        <div class = "block-content">
+                            <div class = "field">
+                                <span class = "label">Naam:</span>
+                                <span class = "text">Jeffrey</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Achternaam:</span>
+                                <span class = "text">Slort</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Leeftijd:</span>
+                                <span class = "text"> {{ ((datetime.now() - datetime(1989,12,30)).days / 365) |int}}
+								</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Telefoon:</span>
+                                <span class = "text">06-20146404</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Plaats:</span>
+                                <span class = "text">Hellevoetsluis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id = "skills" class = "block">
+                        <h2>Competenties</h2>
+                        <div class = "block-content">
+                            <div class = "field">
+                                <span class = "label">Jaren aan het werk:</span>
+                                <span class = "text">{{ ((datetime.now() - datetime(2013,5,20)).days / 365) |int}}</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Diploma:</span>
+                                <span class = "text">Bachelor Technische Bedrijfskunde</span>
+                            </div>
+                            <div class = "field">
+                                <span class = "label">Talen:</span>
+                                <span class = "text">NL, EN</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!-- /Left Sidebar -->
+
+                <!-- Content --><div class = "content">
+
+                    <div class = "body">
+                        <h3 style="display:inline" >Welkom!</h3> <p style="display:inline">Mijn naam is <span class="nadruk">Jeffrey Slort</span> en u bent terecht gekomen op mijn persoonlijke portaal. Op deze website kunt u alle informatie vinden met betrekking tot mijn 
+                        	loopbaan, mijn interesses en dergelijke.
+                        Dit portaal komt voort uit mijn motto namelijk "altijd blijven leren" en in de huidige online wereld betekend dat voor mij dat ook programmeren een belangrijke skill is. </p><br /><br />
+                        <h3>Verder ben ik: </h3>
+	                       
+	                       <!-- homepage lijst -->
+	                       <div style="padding: 5px 25px;">                  
+	                       <ul class="fa-ul">
+	                        	<li><i class="fa-li fa fa-check fa-2x nadruk"></i>Een <span class="nadruk">technisch bedrijfskundige</span> met een diepgewortelde interesse in procesoptmalisatie en data-analyse &amp -visualisatie.</li>
+	                        	<li><i class="fa-li fa fa-check fa-2x nadruk"></i>Een <span class="nadruk">hardloper</span> en <span class="nadruk">kickbokser</span>, met een instelling van continue verbetering</li>
+	                       </ul>
+	                       </div>
+	                       <!-- /homepage lijst -->
+                        
+                    </div>
+
+                    <div id = "my-skills" class = "block">
+                        <h3> Als ik mezelf beschrijf in 3 woorden, dan zijn dat: </h3>
+                        <div class = "block-content">
+                            <div class="vierkant"><p>Analytisch</p></div>
+                            <div class="vierkant"><p>Probleem-oplossend</p></div>
+                            <div class="vierkant"><p>Verantwoordelijk</p></div>
+                        </div>
+                    </div> 
+
+                </div><!-- /Content -->
+
+                <!-- Cleaner --><div class="clear"></div><!-- /Cleaner -->
+
+            </div><!-- /Content Inner -->

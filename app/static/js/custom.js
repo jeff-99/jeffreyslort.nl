@@ -1,3 +1,45 @@
+function setup_cv_blokken(){
+    $(".roll-with-description.hide").each(function(){
+        $(this).each(function(){
+            $(this).find(".description").css('display','none');
+        });
+    });
+
+    $(".roll-with-description.show").each(function(){
+        $(this).each(function(){
+            $(this).find(".description").css('display','block');
+        });
+    });
+
+    $(".roll-with-description").each(function(){
+        $(this).click(function(){
+            var speed = 600;
+            if ($(this).hasClass("show")) {
+                $(this).removeClass("show");
+                $(this).find(".description").slideUp(speed);
+                setTimeout($(this).addClass("hide"), speed);
+
+            }
+            else if ($(this).hasClass("hide")) {
+                $(this).removeClass("hide");
+                $(this).find(".description").slideDown(speed);
+                setTimeout($(this).addClass("show"), speed);
+            }
+        });
+    });
+}
+
+/* AJAX LOADING */
+$(document).on({
+    ajaxStart: function() { $("#container").addClass("loading");    },
+     ajaxStop: function() { $("#container").removeClass("loading"); },
+    ajaxComplete: function(){
+        /* fix voor de cv pagina */
+        setup_cv_blokken();
+    }
+});
+/* END AJAX LOADING */
+
 $(document).ready(function(){
     /* ---------------------------------------------------------------------- */
     /*	Portfolio Page
@@ -149,34 +191,8 @@ $(document).ready(function(){
     /* ---------------------------------------------------------------------- */
     /*	ProgressBar Show/Hide Description
     /* ---------------------------------------------------------------------- */
-    $(".roll-with-description.hide").each(function(){
-        $(this).each(function(){
-            $(this).find(".description").css('display','none');
-        });
-    });
-
-    $(".roll-with-description.show").each(function(){
-        $(this).each(function(){
-            $(this).find(".description").css('display','block');
-        });
-    });
-
-    $(".roll-with-description").each(function(){
-        $(this).click(function(){
-            var speed = 600;
-            if ($(this).hasClass("show")) {
-                $(this).removeClass("show");
-                $(this).find(".description").slideUp(speed);
-                setTimeout($(this).addClass("hide"), speed);
-
-            }
-            else if ($(this).hasClass("hide")) {
-                $(this).removeClass("hide");
-                $(this).find(".description").slideDown(speed);
-                setTimeout($(this).addClass("show"), speed);
-            }
-        });
-    });
+    /* functie wordt boven gedeclared, fix voor de ajax requests */
+    setup_cv_blokken();
     /* ---------------------------------------------------------------------- */
     /*	Block Show/Hide Description
     /* ---------------------------------------------------------------------- */
@@ -261,5 +277,36 @@ $(document).ready(function(){
         });
         return false;
     });
+
+     /* ---------------------------------------------------------------------- */
+    /*	Contact Form
+    /* ---------------------------------------------------------------------- */
+
+    // Needed variables
+    var $contactform 	= $('#contact'),
+        $success		= 'Uw bericht is succesvol verzonden!';
+    $contactform.submit(function(){
+        $.ajax({
+            type: "POST",
+            url: $contactform.attr("action"),
+            data: $(this).serialize(),
+            success: function(msg)
+            {
+                if(msg == 'SEND'){
+                    response = '<div class="status-success">'+ $success +'</div>';
+                }
+                else{
+                    response = '<div class="status-error">'+ msg +'</div>';
+                }
+                // Hide any previous response text
+                $(".status-error,.status-success").remove();
+                // Show response message
+                $contactform.prepend(response);
+            }
+        });
+        return false;
+    });
+
+
         /* End */
 });

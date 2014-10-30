@@ -2587,3 +2587,11 @@
 	-moz-border-radius: 10px;
 	
 }
+
+.loading {
+    background: rgba( 255, 255, 255, 1 ) url('../images/301.gif') 50% 50% no-repeat !important;
+}
+
+.roll-field > .description{
+    display:none;
+}

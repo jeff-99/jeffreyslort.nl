@@ -19,7 +19,9 @@ class Sectie(Document):
     structure = {
         "sectie": unicode,
         "template": unicode,
-        "properties": dict,
+        "type": unicode
     }
     required_fields = ["sectie","template"]
+    default_values = {
+        "type":""}
     use_dot_notation = True

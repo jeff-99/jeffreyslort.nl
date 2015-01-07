@@ -19,7 +19,7 @@ mailer = Mail(app)
 from api.api import apiBP
 from frontend.views import websiteBP
 from blog.views import blogBP
-app.register_blueprint(websiteBP,url_prefix="/index")
+app.register_blueprint(websiteBP,url_prefix="")
 app.register_blueprint(apiBP,url_prefix="/api")
 app.register_blueprint(blogBP,url_prefix="/blog")
 app.jinja_env.globals.setdefault("datetime",datetime)

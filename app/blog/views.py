@@ -15,8 +15,8 @@ def index():
 def overzicht(pagina):
     cat = request.args.get("cat")
     search = request.args.get("zoeken")
-    query = request.query_string
-    print query
+    query = "?" + request.query_string if request.query_string else None
+
     next_page = None
     previous_page = None
 

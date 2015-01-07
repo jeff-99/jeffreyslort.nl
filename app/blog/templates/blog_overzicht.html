@@ -46,8 +46,8 @@
                             {{ blog.post_excerpt(post,date_dict) }}
                         {% endfor %}
                     <div id="pagenav">
-                        {% if next != None %}<div id="ouder" class="buttons"><a href="{{ url_for("blog.overzicht",pagina=next) }}{% if query != None %}?{{ query }}{% endif %}"><< ouder</a></div>{% endif %}
-                        {% if prev != None %}<div id="nieuwer" class="buttons"><a href="{{ url_for("blog.overzicht",pagina=prev) }}{% if query != None %}?{{ query }}{% endif %}">nieuwer >></a></div>{% endif %}
+                        {% if next != None %}<div id="ouder" class="buttons"><a href="{{ url_for("blog.overzicht",pagina=next) }}{% if query != None %}{{ query }}{% endif %}"><< ouder</a></div>{% endif %}
+                        {% if prev != None %}<div id="nieuwer" class="buttons"><a href="{{ url_for("blog.overzicht",pagina=prev) }}{% if query != None %}{{ query }}{% endif %}">nieuwer >></a></div>{% endif %}
                     </div>
                     </div>
                 </div>

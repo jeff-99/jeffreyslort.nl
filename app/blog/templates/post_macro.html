@@ -1,0 +1,16 @@
+{% macro post_excerpt(post,date_dict) %}
+    {% if post["image"] %}
+    <div class="text-field blog with-image">
+        <div class="text-fiels-top"><a href="{{ post["url"] }}" class="blog-post"><img src="{{ url_for("static",filename=post["image"]) }}" width="530" height="200"/></a></div>
+    {% else %}
+    <div class="text-field blog">
+    {% endif %}
+
+        <div class="text-field-left">{{ post["datum"].day }}<br/>{{ post["datum"].month }}<br/>{{ post["datum"].year }}</div>
+        <div class="text-field-right">
+            <div class="title"><a href="/blog{{ post["url"] }}" class="blog-post">{{ post["titel"] }}</a></div>
+            <div class="meta"><span class="author">{{ post["author"] }}</span><span class="tag">{{ post["categorie"] }}</span></div>
+            <div class="text"><p>{{ post["excerpt"] }}</p></div>
+        </div>
+    </div>
+{% endmacro %}

@@ -1,18 +1,13 @@
 {% extends "base.html" %}
-{% import "profiel.html" as profiel %}
-{% import "cv.html" as cv %}
-{% import "documenten.html" as documenten %}
-{% import "contact.html" as contact %}
-
 
 {% block nav %}
     <!-- Navigation --><ul id = "navigation-menu" class = "navigation-menu">
-            <li class="first"><a class = "profile" href="{{ url_for("website.sectie",sectie="profiel") }}" data-target="#profiel"><span>Profiel</span></a></li>
-            <li><a class = "cv" href="{{ url_for("website.sectie",sectie="cv") }}" data-target="#cv"><span>CV</span></a></li>
-            <li><a class = "documents" href="{{ url_for("website.sectie",sectie="documenten") }}" data-target="#documenten"><span>Documenten</span></a></li>
-            <li><a class = "portfolio" href="{{ url_for("website.sectie",sectie="portfolio") }}" data-target="#portfolio"><span>Projecten</span></a></li>
-            <li><a class = "blog" href="{{ url_for("website.sectie",sectie="blog") }}" data-target="#blog"><span>Blog</span></a></li>
-            <li class="last"><a class = "contacts" href="{{ url_for("website.sectie",sectie="contact") }}" data-target="#contacts"><span>Contact</span></a></li>
+            <li class="first tab"><a class = "profile" href="{{ url_for("website.sectie",sectie="profiel") }}" data-target="#profiel"><span>Profiel</span></a></li>
+            <li class="tab"><a class = "cv" href="{{ url_for("website.sectie",sectie="cv") }}" data-target="#cv"><span>CV</span></a></li>
+            <li class="tab"><a class = "documents" href="{{ url_for("website.sectie",sectie="documenten") }}" data-target="#documenten"><span>Documenten</span></a></li>
+            <li class="tab"><a class = "portfolio" href="{{ url_for("website.sectie",sectie="portfolio") }}" data-target="#portfolio"><span>Projecten</span></a></li>
+            <li><a class = "blog" href="{{ url_for("blog.overzicht") }}"><span>Blog</span></a></li>
+            <li class="last tab"><a class = "contacts" href="{{ url_for("website.sectie",sectie="contact") }}" data-target="#contacts"><span>Contact</span></a></li>
     </ul><!-- /Navigation -->
 {% endblock %}
 

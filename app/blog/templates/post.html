@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block nav %}
+     <!-- Navigation --><ul id = "navigation-menu" class = "navigation-menu">
+            <li class="first"><a class = "profile" href="{{ url_for("website.index") }}#profiel"><span>Profiel</span></a></li>
+            <li ><a class = "cv" href="{{ url_for("website.index") }}#cv" data-target="#cv"><span>CV</span></a></li>
+            <li ><a class = "documents" href="{{ url_for("website.index") }}#documenten" data-target="#documenten"><span>Documenten</span></a></li>
+            <li ><a class = "portfolio" href="{{ url_for("website.index") }}#projecten" data-target="#portfolio"><span>Projecten</span></a></li>
+            <li><a class = "blog active" href="{{ url_for("blog.overzicht") }}"><span>Blog</span></a></li>
+            <li class="last"><a class = "contacts" href="{{ url_for("website.index") }}#contacts" data-target="#contacts"><span>Contact</span></a></li>
+    </ul><!-- /Navigation -->
+{% endblock %}
+
+{% block container %}
+<div id = "blog">
+<!-- Content Inner --><div class = "content-inner">
+
+    <!-- Content --><div class = "content">
+                    <h2>{{ post["titel"] }}</h2>
+                    <div> {{ post["body"] }}</div>
+                </div>
+            </div>
+
+
+</div>
+    {% block social %}
+        {{ super() }}
+    {% endblock %}
+{% endblock %}

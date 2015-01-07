@@ -32,7 +32,7 @@
         </ul><!-- /Navigation -->
     {% endblock %}
         <!-- Container --><div id = "container">
-
+        {% block container %}
         <!-- Profile --><div id = "profiel">
         {% block profiel %}{% endblock %}
 
@@ -72,6 +72,7 @@
         {% endblock %}
         </div><!-- /Contacts -->
 
+        {% block social %}
         <!-- Social Button --><div id = "social">
             <ul class = "pos-button">
                 <li class = "first"><a href = "https://www.facebook.com/jeffrey.slort" class = "facebook"title="Facebook"></a></li>
@@ -90,7 +91,8 @@
                 <li class = "last"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjeffreyslort.nl" target="_blank" class = "share" title="Deel op Facebook!"></a></li>
             </ul>
         </div><!-- /Action Button -->
-
+        {% endblock %}
+        {% endblock %}
         </div><!-- /Container -->
 
         <!-- Footer --><div id = "footer">

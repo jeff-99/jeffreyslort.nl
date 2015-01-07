@@ -1,6 +1,6 @@
 __author__ = 'Jeffrey Slort'
 
-from flask import Blueprint, render_template,request,g
+from flask import Blueprint, render_template,request,redirect
 from flask.ext.mail import Message
 from app import mailer, db
 
@@ -8,7 +8,7 @@ websiteBP = Blueprint("website",__name__,template_folder="templates")
 
 @websiteBP.route('/')
 def index():
-    return render_template("index.html", id="yomamma2")
+    return render_template("index.html")
 
 @websiteBP.route("/<string:sectie>")
 def sectie(sectie):
@@ -20,7 +20,7 @@ def sectie(sectie):
         else:
             return render_template(doc["template"])
     else:
-        return "Pagina bestaat nog niet!"
+        return "Sectie bestaat nog niet"
 
 @websiteBP.route("/mail/contact",methods=["POST"])
 def mail():

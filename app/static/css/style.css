@@ -213,7 +213,8 @@
         margin-right: 60px;
         position: relative;
         border-radius: 0 0 3px 3px;
-        min-height: 610px
+        min-height: 610px;
+        overflow:hidden;
     }
 /*****************************INFO***************************/
 
@@ -2594,4 +2595,12 @@
 
 .roll-field > .description{
     display:none;
+}
+
+#ouder{
+    float:left;
+}
+
+#nieuwer{
+    float:right;
 }

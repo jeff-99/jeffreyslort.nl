@@ -130,7 +130,8 @@ $(document).ready(function(){
         transitionIn	: 'slideDown',
         transitionOut	: 'slideUp',
         animationSpeed	: 600,
-        tabActiveClass	: 'active'
+        tabActiveClass	: 'active',
+        tabs: 'li.tab'
     });
      /*    Progressbar load swich tabs     */
     $tabscontainer.bind('easytabs:midTransition', function() {

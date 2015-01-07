@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+
+{% import "post_macro.html" as blog %}
+
+{% block nav %}
+     <!-- Navigation --><ul id = "navigation-menu" class = "navigation-menu">
+            <li class="first"><a class = "profile" href="{{ url_for("website.index") }}#profiel"><span>Profiel</span></a></li>
+            <li ><a class = "cv" href="{{ url_for("website.index") }}#cv" data-target="#cv"><span>CV</span></a></li>
+            <li ><a class = "documents" href="{{ url_for("website.index") }}#documenten" data-target="#documenten"><span>Documenten</span></a></li>
+            <li ><a class = "portfolio" href="{{ url_for("website.index") }}#projecten" data-target="#portfolio"><span>Projecten</span></a></li>
+            <li><a class = "blog active" href="{{ url_for("blog.overzicht") }}"><span>Blog</span></a></li>
+            <li class="last"><a class = "contacts" href="{{ url_for("website.index") }}#contacts" data-target="#contacts"><span>Contact</span></a></li>
+    </ul><!-- /Navigation -->
+{% endblock %}
+
+{% block container %}
+<div id = "blog">
+<!-- Content Inner --><div class = "content-inner">
+
+<!-- Right Sidebar --><div class = "right-sidebar">
+                    <div id = "search" class="block">
+                        <div class="block-content">
+                            <input type="text" name="search" class="input" value="Zoeken..." onblur="if (this.value.length == 0) {this.value='Zoeken...'; this.style='color: #849299';}" onfocus="if (this.value== 'Zoeken...') {this.value=''; this.style='color: black';} " onkeydown="if (event.keyCode == 13) window.location.replace('?zoeken=' + this.value);">
+                            <input title="Search" type="button" name="search-button" class="input">
+                        </div>
+                    </div>
+
+                    <div id = "categories" class="block">
+                        <h2>Categorie</h2>
+                        <div class="block-content">
+                            <ul id = "blog-menu">
+                                <li class="first"><a href="?cat=mening">Mijn wereld</a></li>
+                                <li><a href="?cat=ondernemen">Ondernemen</a></li>
+                                <li><a href="?cat=prog">Programmeren</a></li>
+                                <li class="last"><a href="?cat=handig">Handige dingen</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- /Right Sidebar -->
+
+<!-- Content --><div class = "content">
+                    <h2>Blog</h2>
+                    <div class = "blog-content">
+                        {% for post in posts %}
+                            {{ blog.post_excerpt(post,date_dict) }}
+                        {% endfor %}
+                    <div id="pagenav">
+                        {% if next != None %}<div id="ouder" class="buttons"><a href="{{ url_for("blog.overzicht",pagina=next) }}{% if query != None %}?{{ query }}{% endif %}"><< ouder</a></div>{% endif %}
+                        {% if prev != None %}<div id="nieuwer" class="buttons"><a href="{{ url_for("blog.overzicht",pagina=prev) }}{% if query != None %}?{{ query }}{% endif %}">nieuwer >></a></div>{% endif %}
+                    </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+
+    {% block social %}
+        {{ super() }}
+    {% endblock %}
+{% endblock %}

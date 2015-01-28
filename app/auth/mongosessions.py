@@ -4,7 +4,7 @@ from flask.sessions import SessionMixin, SessionInterface
 from werkzeug.datastructures import CallbackDict
 from uuid import uuid4
 from datetime import datetime,timedelta
-
+from itsdangerous import URLSafeSerializer, BadSignature
 
 class MongoSession(CallbackDict, SessionMixin):
 
@@ -18,22 +18,37 @@ class MongoSession(CallbackDict, SessionMixin):
 class MongoSessionInterface(SessionInterface):
 
     def __init__(self, db_connection=None):
+        self.salt = "salty"
         if db_connection is not None:
             self.db = db_connection
+
+    def get_serializer(self, app):
+        if not app.secret_key:
+            return None
+        return URLSafeSerializer(app.secret_key,
+                                      salt=self.salt)
+
 
     def generate_sid(self):
         return str(uuid4())
 
     def open_session(self, app, request):
-        sid = request.cookies.get(app.session_cookie_name)
-        if sid:
-            #: load session from database
+        s = self.get_serializer(app)
+        if s is None:
+            return None
+        val = request.cookies.get(app.session_cookie_name)
+        if val:
+            try:
+                sid = s.loads(val)
+            except BadSignature:
+                return MongoSession(sid=self.generate_sid())
+
             stored_session = self.db.sessions.find_one({"_id":sid})
             if stored_session:
                 if stored_session.get("expiration") > datetime.utcnow():
                     return MongoSession(initial=stored_session,sid=sid)
-        new_sid = self.generate_sid()
-        return MongoSession(sid=new_sid)
+
+        return MongoSession(sid=self.generate_sid())
 
     def save_session(self, app, session, response):
         domain = self.get_cookie_domain(app)
@@ -43,13 +58,15 @@ class MongoSessionInterface(SessionInterface):
         if self.get_expiration_time(app, session):
             expiration = self.get_expiration_time(app, session)
         else:
-            expiration = datetime.utcnow() + timedelta(minutes=1)
+            expiration = datetime.utcnow() + timedelta(days=1)
 
         if session.has_key("user_id"):
             self.db.sessions.update({'_id': session.sid},
                               {'_id': session.sid,
                                'user_id': session.get("user_id") or None,
                                'expiration': expiration}, True)
-            response.set_cookie(app.session_cookie_name, session.sid,
+
+            val = self.get_serializer(app).dumps(session.sid)
+            response.set_cookie(app.session_cookie_name, val,
                                 expires=self.get_expiration_time(app, session),
                                 httponly=True, domain=domain)

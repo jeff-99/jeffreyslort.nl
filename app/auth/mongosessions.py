@@ -5,6 +5,7 @@ from werkzeug.datastructures import CallbackDict
 from uuid import uuid4
 from datetime import datetime,timedelta
 
+
 class MongoSession(CallbackDict, SessionMixin):
 
     def __init__(self, initial=None, sid=None):
@@ -43,10 +44,12 @@ class MongoSessionInterface(SessionInterface):
             expiration = self.get_expiration_time(app, session)
         else:
             expiration = datetime.utcnow() + timedelta(minutes=1)
-        self.db.sessions.update({'_id': session.sid},
-                          {'_id': session.sid,
-                           'user_id': session["user_id"],
-                           'expiration': expiration}, True)
-        response.set_cookie(app.session_cookie_name, session.sid,
-                            expires=self.get_expiration_time(app, session),
-                            httponly=True, domain=domain)
+
+        if session.has_key("user_id"):
+            self.db.sessions.update({'_id': session.sid},
+                              {'_id': session.sid,
+                               'user_id': session.get("user_id") or None,
+                               'expiration': expiration}, True)
+            response.set_cookie(app.session_cookie_name, session.sid,
+                                expires=self.get_expiration_time(app, session),
+                                httponly=True, domain=domain)

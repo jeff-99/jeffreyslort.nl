@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block nav %}
     <!-- Navigation --><ul id = "navigation-menu" class = "navigation-menu">
             <li class="first tab"><a class = "profile" href="{{ url_for("website.sectie",sectie="profiel") }}" data-target="#profiel"><span>Profiel</span></a></li>
@@ -9,6 +8,7 @@
             <li><a class = "blog" href="{{ url_for("blog.overzicht") }}"><span>Blog</span></a></li>
             <li class="last tab"><a class = "contacts" href="{{ url_for("website.sectie",sectie="contact") }}" data-target="#contacts"><span>Contact</span></a></li>
     </ul><!-- /Navigation -->
+
 {% endblock %}
 
 

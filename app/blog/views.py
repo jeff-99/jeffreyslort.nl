@@ -4,6 +4,7 @@ from flask import Blueprint, redirect, url_for, render_template, request
 from mongokit.paginator import Paginator
 from app import db
 
+
 blogBP = Blueprint("blog",__name__, template_folder="templates")
 
 @blogBP.route("/")

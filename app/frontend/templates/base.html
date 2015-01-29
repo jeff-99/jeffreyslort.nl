@@ -19,6 +19,14 @@
 
 </head>
 <body>
+    {% block admin_nav %}
+        {% if hasattr(g,"user") and g.user["username"] == "admin" %}
+            <div class="adminbar">
+                <a class="btn" href="{{ url_for("admin.index") }}">admin</a>
+                <a class="btn" href="{{ url_for("admin.logout") }}">logout</a>
+            </div>
+        {% endif %}
+   {% endblock %}
 
     <!-- Wrapper --><div id = "wrapper" class = "wrapper">
     {% block nav %}

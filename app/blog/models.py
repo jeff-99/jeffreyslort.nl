@@ -3,14 +3,17 @@ from datetime import datetime
 
 class Post(Document):
     __collection__= "posts"
+    use_schemaless = True
     structure = {
         "titel": unicode,
-        "body": unicode,
+        "body": {"html":unicode,
+                 "md": unicode},
         "excerpt":unicode,
         "datum": datetime,
-
-        "permalink": unicode,
-        "slug":unicode,
+        "categorie": unicode,
+        "pub": bool,
+        "tags": list,
+        "last_updated": datetime
     }
-    required_fields = ["titel","excerpt","datum","body"]
+    required_fields = []
     use_dot_notation = True

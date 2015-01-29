@@ -22,7 +22,7 @@ db.register([Post,Sectie,User])
 mailer = Mail(app)
 
 login_manager = LoginManager(app)
-login_manager.login_view = "auth.login"
+login_manager.login_view = "admin.login"
 login_manager.id_attribute = "get_id"
 @login_manager.user_loader
 def load_user(id):
@@ -35,12 +35,10 @@ from api.api import apiBP
 from frontend.views import websiteBP
 from blog.views import blogBP
 from admin.views import adminBP
-from auth.views import authBP
 app.register_blueprint(websiteBP,url_prefix="")
 app.register_blueprint(apiBP,url_prefix="/api")
 app.register_blueprint(blogBP,url_prefix="/blog")
 app.register_blueprint(adminBP,url_prefix="/admin")
-app.register_blueprint(authBP,url_prefix="/auth")
 app.jinja_env.globals.setdefault("datetime",datetime)
-
+app.jinja_env.globals.update(hasattr=hasattr)
 app.session_interface = MongoSessionInterface(db_connection=db)

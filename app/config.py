@@ -10,4 +10,5 @@ MAIL_USERNAME = "mail@jeffreyslort.nl"
 MAIL_PASSWORD = "poiuyt09"
 MAIL_USE_SSL = False
 
-SECRET_KEY = os.urandom(1024)
+SECRET_KEY = "sdkljf"#os.urandom(1024)
+WTF_CSRF_ENABLED = True

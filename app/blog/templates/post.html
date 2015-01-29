@@ -16,8 +16,8 @@
 <!-- Content Inner --><div class = "content-inner">
 
     <!-- Content --><div class = "content">
-                    <h2>{{ post["titel"] }}</h2>
-                    <div> {{ post["body"] }}</div>
+                    <h2>{{ post.titel }}</h2>
+                    <div> {{ post.body.html | safe }}</div>
                 </div>
             </div>
 

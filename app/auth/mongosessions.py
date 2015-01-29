@@ -46,7 +46,7 @@ class MongoSessionInterface(SessionInterface):
             stored_session = self.db.sessions.find_one({"_id":sid})
             if stored_session:
                 if stored_session.get("expiration") > datetime.utcnow():
-                    return MongoSession(initial=stored_session,sid=sid)
+                    return MongoSession(initial=stored_session["session"],sid=sid)
 
         return MongoSession(sid=self.generate_sid())
 
@@ -61,12 +61,14 @@ class MongoSessionInterface(SessionInterface):
             expiration = datetime.utcnow() + timedelta(days=1)
 
         if session.has_key("user_id"):
-            self.db.sessions.update({'_id': session.sid},
-                              {'_id': session.sid,
-                               'user_id': session.get("user_id") or None,
-                               'expiration': expiration}, True)
+            sid = session.sid
+            val = self.get_serializer(app).dumps(sid)
 
-            val = self.get_serializer(app).dumps(session.sid)
+            self.db.sessions.update({'_id': sid},
+                              {"$set": {
+                               'session': session,
+                               'expiration': expiration}}, True)
+
             response.set_cookie(app.session_cookie_name, val,
                                 expires=self.get_expiration_time(app, session),
                                 httponly=True, domain=domain)

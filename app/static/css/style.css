@@ -2604,3 +2604,22 @@
 #nieuwer{
     float:right;
 }
+
+.adminbar{
+    min-width: 100%;
+    min-height: 30px;
+    background-color: black;
+    text-align: right;
+    padding: 10px 0px 5px;
+}
+
+.adminbar > .btn{
+    margin: 0px 10px;
+    padding: 3px 5px;
+    border: 1px solid white;
+    color: white;
+}
+.adminbar > .btn:hover{
+    border: 2px solid blue;
+    color: blue;
+}

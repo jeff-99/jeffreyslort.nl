@@ -46,10 +46,16 @@ def blog_edit(post_id):
 
 @adminBP.route("/blog-create")
 @login_required
-def create():
+def blog_create():
     post = db.Post()
     post.save()
     return redirect(url_for("admin.blog_edit",post_id=post._id))
+
+@adminBP.route("/blog-delete/<ObjectId:post_id>")
+@login_required
+def blog_delete(post_id):
+    db.posts.remove({"_id":post_id})
+    return redirect(url_for("admin.blog_overzicht"))
 
 
 @adminBP.route("/login",methods=["GET","POST"])
